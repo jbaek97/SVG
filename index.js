@@ -3,19 +3,6 @@ const fs = require('fs');
 const {Circle, Triangle, Square} = require('./lib/shapes.js');
 
 
-// const svgFile = ({text, color, shape}) = {
-//     if(shape = 'circle') {
-//         const newCircleLogo = `<circle cx="25" cy="75" r="20"/>`; 
-//         fs.writeFile(`${text}Logo.svg`, newCircleLogo);
-//     } else if(shape = 'triangle') {
-//         const newTriangleLogo = `<polygon points="250,60 100,400 400,400"/>`;
-//         fs.writeFile(`${text}Logo.svg`, newCircleLogo);
-//     } else if(shape = 'square') 
-// }
-// const svgFile = ({text, color, shape}) = {
-
-// }
-
 inquirer
     .prompt([
         {
@@ -58,10 +45,9 @@ inquirer
             const newSquareLogo = new Square(text, color);
             newSquareLogo.setColor(color);
             newSquareLogo.setText(text);
-            fs.writeFile(`./examples/${this.text}Logo.svg`, `<svg width="300" height="200">${newSquareLogo.render()}</svg>`, (err) =>
+            fs.writeFile(`./examples/${newSquareLogo.text}Logo.svg`, `<svg width="300" height="200">${newSquareLogo.render()}</svg>`, (err) =>
             err ? console.log(err) : console.log('New square logo successfully made.'));
             return;
-        } else {
-            return;
         }
+        console.log("Generated logo.svg")
     })
